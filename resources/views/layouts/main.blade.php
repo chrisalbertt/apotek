@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- Favicon -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" type="image/png">
+
   <!-- Bootstrap & Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -15,12 +18,12 @@
   <!-- Custom Styles -->
   <style>
     body {
-      background-color: #f4f9f5; /* Latar belakang yang lebih segar dan bersih */
+      background-color: #f4f9f5;
       font-family: 'Segoe UI', sans-serif;
     }
 
     .navbar {
-      background: linear-gradient(to right, #4caf50, #66bb6a); /* Hijau yang lebih cerah dan segar */
+      background: linear-gradient(to right, #4caf50, #66bb6a);
       border-bottom: 2px solid #81c784;
       padding: 10px 30px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -59,7 +62,7 @@
     }
 
     .sidebar {
-      background-color: #e8f5e9; /* Warna hijau muda untuk sidebar */
+      background-color: #e8f5e9;
       height: 100vh;
       border-right: 2px solid #81c784;
       padding: 20px 10px;
@@ -74,7 +77,7 @@
 
     .sidebar .btn:hover,
     .sidebar .btn.active {
-      background-color: #388e3c !important; /* Hijau lebih gelap ketika hover atau aktif */
+      background-color: #388e3c !important;
       color: white !important;
       transform: translateX(5px);
       box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
@@ -91,30 +94,28 @@
     .card {
       border-radius: 15px;
       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
-      background-color: #ffffff; /* Menjaga kartu tetap putih agar bersih */
-    }
-
-    .card:hover {
-      transform: scale(1.01);
+      background-color: #ffffff;
+      animation: fadeInUp 0.5s ease;
     }
 
     .card-header {
       font-weight: bold;
-      background-color: #43a047; /* Hijau yang lebih gelap untuk header */
+      background-color: #43a047;
       color: white;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
     }
 
-    .search-bar input {
-      border: 2px solid #c8e6c9;
-      border-radius: 25px;
-      padding-left: 15px;
-    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-    .search-bar input:focus {
-      border-color: #66bb6a;
-      box-shadow: 0 0 5px rgba(102, 187, 106, 0.5);
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     footer {
@@ -122,7 +123,7 @@
       left: 0;
       bottom: 0;
       width: 100%;
-      background-color: #388e3c; /* Hijau yang lebih gelap untuk footer */
+      background-color: #388e3c;
       color: white;
       text-align: center;
       padding: 10px 0;
@@ -137,13 +138,18 @@
     .breadcrumb-item a {
       color: #388e3c;
       font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .breadcrumb-item a:hover {
+      color: #2e7d32;
+      text-decoration: underline;
     }
 
     .breadcrumb-item.active {
       color: #1b5e20;
     }
 
-    /* Custom CSS to keep logout button red */
     .sidebar .btn-danger {
       background-color: #e53935 !important;
       color: white !important;
@@ -152,10 +158,31 @@
 
     .sidebar .btn-danger:hover,
     .sidebar .btn-danger:active {
-      background-color: #e53935 !important; /* Red remains the same */
+      background-color: #e53935 !important;
       color: white !important;
-      transform: none !important; /* No transform effect */
-      box-shadow: none !important; /* No box shadow */
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Smooth hover on icons */
+    .sidebar .btn i {
+      transition: transform 0.2s ease;
+    }
+
+    .sidebar .btn:hover i {
+      transform: scale(1.15);
+    }
+
+    /* Responsive improvement */
+    @media (max-width: 768px) {
+      .sidebar {
+        height: auto;
+        padding-bottom: 20px;
+      }
+
+      footer {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -211,10 +238,6 @@
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
           </ol>
         </nav>
-
-        <div class="search-bar mb-3">
-          <input type="text" class="form-control" placeholder="🔍 Cari data...">
-        </div>
 
         <div class="card">
           <div class="card-header">
