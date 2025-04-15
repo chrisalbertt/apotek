@@ -59,7 +59,7 @@
                 <th>Stok Awal</th>
                 <th>Stok Masuk</th>
                 <th>Stok Keluar</th>
-                <th>Stok Akhir</th>
+                <th>Stok Terakhir</th>
             </tr>
         </thead>
         <tbody>
