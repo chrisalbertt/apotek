@@ -56,11 +56,6 @@
       font-size: 2rem;
     }
 
-    .navbar .navbar-brand:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-    }
-
     .sidebar {
       background-color: #e8f5e9;
       height: 100vh;
